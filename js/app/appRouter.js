@@ -6,7 +6,7 @@ define([
     var appController = Marionette.Controller.extend({
         doHome: function() {
             require(['app/Modules/MainPage/MainPage'], function(MainPage) {
-                console.log('App', App);
+                console.log('home');
                 App.contentRegion.show(new MainPage());
             });
         },
