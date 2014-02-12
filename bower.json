@@ -1,0 +1,11 @@
+{
+    "name": "mara",
+    "version": "1.0.0",
+    "main": "css/main.css",
+    "dependencies": {
+        "jquery": "*",
+        "marionette": "*",
+        "requirejs": "*",
+        "requirejs-text": "*"
+    }
+}
