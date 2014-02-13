@@ -9,8 +9,8 @@ app.use('/css', express.static(__dirname + '/css'));
 
 
 
-app.get('/users', function(req, res) {
-    res.json({ user: 'tobi' });
+app.get('/api/users', function(req, res) {
+    res.json([{ id: 1,name: 'Иванов'}, { id: 2,name: 'Петров'}, { id: 3,name: 'Сидоров'}]);
 });
 
 

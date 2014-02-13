@@ -7,7 +7,8 @@ require.config({
         "backbone.wreqr": 'vendor/backbone.wreqr/lib/backbone.wreqr',
         "backbone.babysitter": 'vendor/backbone.babysitter/lib/backbone.babysitter',
         "marionette": 'vendor/marionette/lib/backbone.marionette',
-        "text": 'vendor/requirejs-text/text'
+        "text": 'vendor/requirejs-text/text',
+        "backbone.subroute": 'vendor/backbone.subroute'
     },
     shim: {
         "jquery": {
@@ -23,6 +24,9 @@ require.config({
         "marionette": {
             deps: ['backbone', 'jquery', 'underscore'],
             exports: 'Marionette'
+        },
+        "backbone.subroute": {
+            deps: ['backbone']
         }
 
     }

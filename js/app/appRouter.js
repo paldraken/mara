@@ -5,13 +5,16 @@ define([
 
     var appController = Marionette.Controller.extend({
         doHome: function() {
-            require(['app/Modules/MainPage/MainPage'], function(MainPage) {
-                console.log('home');
+            console.log('home')
+            require(['app/Modules/MainPage/index'], function(MainPage) {
                 App.contentRegion.show(new MainPage());
             });
         },
         doUsers: function() {
             console.log('users');
+            require(['app/Modules/Users/index'], function(Users) {
+                App.contentRegion.show(new Users());
+            });
         },
         doList: function() {
             console.log('list');
@@ -22,7 +25,8 @@ define([
         controller: new appController(),
         appRoutes: {
             '': 'doHome',
-            'users': 'doUsers',
+            'home': 'doHome',
+            'users(/*subroute)': 'doUsers',
             'list': 'doList'
         },
         initialize: function() {
