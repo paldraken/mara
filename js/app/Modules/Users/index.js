@@ -6,6 +6,7 @@ define([
     'app/Modules/Users/Views/UsersListCollection',
     'text!app/Modules/Users/tpl/layout.html'
 ], function($, _, Marionette, Router, UsersColl, tpl) {
+
     return Marionette.Layout.extend({
         template: _.template(tpl),
         regions: {
@@ -14,6 +15,8 @@ define([
         },
         initialize: function() {
             console.log('init user page');
+        },
+        onRender: function() {
             this.router = Router(this.controller, 'users/', this);
         },
         controller: {
@@ -21,6 +24,9 @@ define([
                 console.log(this.listRegion);
                 this.listRegion.show(new UsersColl());
 
+            },
+            doIndex: function() {
+                console.log('1111111111');
             }
         }
     });
