@@ -1,5 +1,10 @@
 var express = require('express');
 var app = express();
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('db/project.sqlite');
+
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -8,10 +13,7 @@ app.use('/js', express.static(__dirname + '/js'));
 app.use('/css', express.static(__dirname + '/css'));
 
 
-
-app.get('/api/users', function(req, res) {
-    res.json([{ id: 1,name: 'Иванов'}, { id: 2,name: 'Петров'}, { id: 3,name: 'Сидоров'}]);
-});
+require('./backend/Users/')(app, db);
 
 
 app.get('/', function(req, res) {

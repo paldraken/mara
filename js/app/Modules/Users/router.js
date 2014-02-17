@@ -12,7 +12,6 @@ define([
                     api['doList'].apply(parent, params);
                 },
                 "": function(params) {
-                    console.log(1111111111112);
                     api['doIndex'].apply(parent, params);
                 }
             }

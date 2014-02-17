@@ -10,6 +10,7 @@ define([
     return Marionette.Layout.extend({
         template: _.template(tpl),
         regions: {
+            moduleMenu: '.module-menu',
             listRegion: '#users-list',
             detailRegion: '.users-detail'
         },
@@ -17,16 +18,18 @@ define([
             console.log('init user page');
         },
         onRender: function() {
-            this.router = Router(this.controller, 'users/', this);
+            this.router = Router(this.controller, 'users', this);
         },
         controller: {
             doList: function() {
-                console.log(this.listRegion);
-                this.listRegion.show(new UsersColl());
-
+                var Dummy = Marionette.ItemView.extend({
+                    template: _.template('<div>!!!!!!!!!!!!!</div>')
+                });
+                this.listRegion.show(new Dummy());
             },
             doIndex: function() {
-                console.log('1111111111');
+                console.log('users home');
+                this.listRegion.show(new UsersColl());
             }
         }
     });
